@@ -157,14 +157,7 @@
         <p>v3 organiza proyectos, ideas, bitácoras, módulos y resultados en una sola plataforma expandible.</p>
       </div>
     </section>
-  
-<div style="padding:10px; text-align:center;">
-  <button onclick="sincronizarDatosLocal()" style="padding:10px 16px; font-size:16px; border-radius:8px; cursor:pointer;">
-    
-  </button>
-</div>
-
-</main>
+  </main>
 
   <script src="js/core.js"></script>
   <script src="js/storage.js"></script>
@@ -176,56 +169,5 @@
   <script src="js/exchange.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
-
-<script>
-async function sincronizarDatosLocal() {
-  try {
-    const data = {
-      origen: "centro_operativo_dorado",
-      fecha: new Date().toISOString(),
-      localStorage: {...localStorage}
-    };
-
-    const res = await fetch('http://127.0.0.1:9301/api/sync', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-
-    const json = await res.json();
-    console.log("SYNC RESPONSE:", json);
-
-    if (json.ok) {
-      alert("✅ Sincronizado con Supabase");
-    } else {
-      alert("❌ Error al sincronizar: " + (json.error || "desconocido"));
-    }
-  } catch (e) {
-    console.error(e);
-    alert("❌ Error conectando con backend");
-  }
-}
-</script>
-
-
-<div style="
-position:fixed;
-bottom:30px;
-right:20px;
-z-index:99999;
-">
-<button onclick="sincronizarDatosLocal()" 
-style="
-background:red;
-color:white;
-font-size:18px;
-padding:15px;
-border-radius:10px;
-border:none;
-">
-SYNC
-</button>
-</div>
-
 </body>
 </html>
