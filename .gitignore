@@ -9,3 +9,5 @@ pnpm-debug.log
 dist/
 build/
 coverage/
+
+v2/
