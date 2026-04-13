@@ -6,3 +6,4 @@ Estructura inicial de v3.
 - frontend/
 - backend/
 - docs/
+update Mon Apr 13 13:22:51 -04 2026
